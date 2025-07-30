@@ -24,3 +24,9 @@ val luckyDogsDF: DataFrame = spark.read.parquet(hdfs_path_lucky)
 
 // Show
 luckyDogsDF.show
+
+// Filter the data by 2016
+val filteredLuckyDogs: DataFrame = luckyDogsDF.filter(col("batchNum") >= "201601").select("carNum")
+ 
+// Join two dataframe by carNum
+val jointDF: DataFrame = applyNumbersDF.join(filteredLuckyDogs, Seq("carNum"), "inner")
