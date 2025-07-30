@@ -1,5 +1,5 @@
 """
-  The file generate the top-5 appeared words in wiki of spark.
+  The file generates the top-5 appeared words in the wiki of spark.
 """
 
 from pyspark import SparkContext
