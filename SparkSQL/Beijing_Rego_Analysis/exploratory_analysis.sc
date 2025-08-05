@@ -25,6 +25,7 @@ val filteredLuckyDogs: DataFrame = luckyDogsDF.filter(col("batchNum") >= "201601
 val jointDF: DataFrame = applyNumbersDF.join(filteredLuckyDogs, Seq("carNum"), "inner")
  
 // Group by batchNum and carNum, count appearance number
+// lit 1 (just 1)
 val multipliers: DataFrame = jointDF.groupBy(col("batchNum"),col("carNum"))
 .agg(count(lit(1)).alias("multiplier"))
  
